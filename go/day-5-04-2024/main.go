@@ -16,11 +16,25 @@ import (
 	"fmt"
 )
 
+func isBadPair(a, b rune) bool {
+	return a != b && (a == b+32 || a+32 == b)
+}
+
 func makeGood(s string) string {
-	// var array []string
-	// var starIndex int
-	for i, char := range s {
-		fmt.Println(i)
-		fmt.Println(char)
+	stack := []rune{}
+	for _, char := range s {
+		if len(stack) > 0 && isBadPair(stack[len(stack)-1], char) {
+			stack = stack[:len(stack)-1]
+		} else {
+			stack = append(stack, char)
+		}
 	}
+	return string(stack)
+}
+
+func main() {
+	fmt.Println(makeGood("leEeetcode"))
+	fmt.Println(makeGood("abBAcC"))
+	fmt.Println(makeGood("s"))
+
 }
