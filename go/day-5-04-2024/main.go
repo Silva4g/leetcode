@@ -38,3 +38,10 @@ func main() {
 	fmt.Println(makeGood("s"))
 
 }
+
+/*
+para esta solucao eu crio uma pilha chamada stack e para sempre percorrer ela usamos o len(stack) o tamanho da pilha -1,
+apos isso pegamos o char que printa o bite do caractere do momento, se o bite tiver mais 32 bites do que a letra anterior
+nos removemos a letra anterior (se for maiuscula tem menos bites, se for minuscula tem mais 32 bites) e assim se nao 
+tiver adicionamos na pilha 
+*/
